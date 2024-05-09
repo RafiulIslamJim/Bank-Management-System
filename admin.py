@@ -1,11 +1,13 @@
 from user import User
 class Admin:
-  def __init__(self) -> None:
+  def __init__(self):
     self.users = []
+
   def create_account(self,name,email,address,account_type):
     user = User(name,email,address,account_type)
     self.users.append(user)
     return user
+  
   def delete_account(self,account_number):
     for user in self.users:
       if user.account_number == account_number:

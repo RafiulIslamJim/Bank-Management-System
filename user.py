@@ -1,6 +1,6 @@
 import random
 class User:
-  def __init__(self,name,email,address,account_type) -> None:
+  def __init__(self,name,email,address,account_type):
     self.name = name
     self.email = email
     self.address = address
@@ -12,6 +12,7 @@ class User:
   def deposit(self,amount):
     self.balance += amount
     self.transaction_history.append(f'Deposit: +{amount}')
+
   def withdraw(self,amount):
     if self.balance >= amount:
       self.balance -= amount
@@ -21,6 +22,7 @@ class User:
   
   def check_balance(self):
     return self.balance
+  
   def transfer(self,amount,recipient):
     if self.balance >= amount:
       self.balance -= amount
@@ -29,6 +31,7 @@ class User:
       recipient.transaction_history.append(f'Transfer: +{amount} from {self.name}')
     else:
       print('Insufficient funds for transfer')
+      
   def take_loan(self,amount):
     if len(self.transaction_history) < 2:
       self.balance += amount
